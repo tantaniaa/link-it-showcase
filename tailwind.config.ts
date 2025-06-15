@@ -1,7 +1,6 @@
-
 import type { Config } from "tailwindcss";
 
-// Cute pastel palette: pink, lavender, mint, lemon, sky blue
+// Modern Apple inspired palette: soft light grey, white, darker accents, blue highlights
 
 export default {
   darkMode: ["class"],
@@ -22,56 +21,61 @@ export default {
     },
     extend: {
       fontFamily: {
+        // Apple uses SF Pro, fallback to system UI stack for web
+        apple: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
         nunito: ['Nunito', 'sans-serif'],
       },
       colors: {
-        // Cute, pastel palette
+        // Apple-inspired neutral palette
         brand: {
-          bg: "#FFF6F9",               // soft pink background
-          primary: "#EA80FC",           // lavender
-          secondary: "#B388FF",         // pastel purple
-          accent: "#FFB6B6",            // pastel pink accent
-          dark: "#9370DB",              // deep lilac
-          cta: "#50E3C2",               // mint
+          bg: "#f9fafb",             // very light grey background
+          primary: "#1a1a1a",        // super deep dark
+          secondary: "#f0f0f5",      // light neutral box
+          accent: "#0071e3",         // blue accent (Apple blue)
+          dark: "#252525",           // dark grey, not pure black
+          cta: "#0071e3",            // same blue for cta
         },
-        border: '#FFD6EC',              // pastel pink border
-        input: '#D5F3FF',               // blue/sky accent for inputs
-        ring: '#EA80FC',                // lavender ring
-        background: '#FFF6F9',
-        foreground: '#6D597A',          // muted purple text
+        border: "#ececec",            // subtle border grey
+        input: "#f0f0f5",             // matches card/box background
+        ring: "#0071e3",              // blue ring
+        background: "#f9fafb",
+        foreground: "#23272a",        // deep muted text
         primary: {
-          DEFAULT: "#EA80FC",           // lavender
+          DEFAULT: "#1a1a1a",         // main text/black
           foreground: "#fff"
         },
         secondary: {
-          DEFAULT: "#B388FF",           // pastel purple
-          foreground: "#fff"
+          DEFAULT: "#f0f0f5",         // surface/card background
+          foreground: "#23272a"
         },
         destructive: {
-          DEFAULT: '#F98C94',
-          foreground: '#fff'
+          DEFAULT: "#fa3c3c",
+          foreground: "#fff"
         },
         muted: {
-          DEFAULT: "#FFE5EC",           // light pink muted
-          foreground: "#B388FF"
+          DEFAULT: "#f3f3f7",         // light grey muted
+          foreground: "#8a8a8f"
         },
         accent: {
-          DEFAULT: "#FFB6B6",           // pastel pink
+          DEFAULT: "#0071e3",         // blue accent
           foreground: "#fff"
         },
         popover: {
-          DEFAULT: "#FFF6F9",
-          foreground: "#6D597A"
+          DEFAULT: "#fff",
+          foreground: "#23272a"
         },
         card: {
-          DEFAULT: "#ffffff",
-          foreground: "#6D597A"
+          DEFAULT: "#fff",
+          foreground: "#23272a"
         }
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)'
+        lg: "18px",
+        md: "14px",
+        sm: "8px",
+      },
+      boxShadow: {
+        apple: "0 4px 16px 0 rgba(30,34,40,0.04), 0 1.5px 6px 0 rgba(30,34,40,0.04)",
       },
       keyframes: {
         'accordion-down': {
