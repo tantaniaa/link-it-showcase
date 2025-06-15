@@ -19,6 +19,7 @@ export default function AdminPage() {
   const [tagline, setTagline] = useState("Cake homemade & baju batik, siap kirim tiap hari 🚚");
   const [promoText, setPromoText] = useState("Diskon 10% hingga 30 Juni!");
   const [promoExpiry, setPromoExpiry] = useState("Sisa 9 Hari");
+  const [promoLink, setPromoLink] = useState(""); // NEW: promo section link
 
   // Products
   const [products, setProducts] = useState([
@@ -56,6 +57,37 @@ export default function AdminPage() {
       caption: "Pengiriman cepat dan ramah!",
     },
   ]);
+
+  // External links like Linktree
+  const [extraLinks, setExtraLinks] = useState([
+    {
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&q=80&w=300",
+      title: "Order via Tokopedia",
+      url: "https://tokopedia.com/",
+    },
+  ]);
+  function handleExtraLinkChange(idx: number, key: string, value: string) {
+    setExtraLinks(links =>
+      links.map((link, i) => (i === idx ? { ...link, [key]: value } : link)),
+    );
+  }
+  function handleExtraLinkImage(idx: number, e: React.ChangeEvent<HTMLInputElement>) {
+    if (e.target.files && e.target.files[0]) {
+      const url = URL.createObjectURL(e.target.files[0]);
+      setExtraLinks(links =>
+        links.map((link, i) => (i === idx ? { ...link, image: url } : link)),
+      );
+    }
+  }
+  function addExtraLink() {
+    setExtraLinks(links => [
+      ...links,
+      { image: "", title: "", url: "" },
+    ]);
+  }
+  function removeExtraLink(idx: number) {
+    setExtraLinks(links => links.filter((_, i) => i !== idx));
+  }
 
   // Handle uploads, edits
   function handleLogoChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -143,18 +175,22 @@ export default function AdminPage() {
             <Input value={promoText} onChange={e => setPromoText(e.target.value)} />
             <Label>Expiry / Additional Info</Label>
             <Input value={promoExpiry} onChange={e => setPromoExpiry(e.target.value)} />
+            <Label>Promo Redirect Link</Label>
+            <Input value={promoLink} onChange={e => setPromoLink(e.target.value)} placeholder="https://yourpromo.com" />
           </CardContent>
         </Card>
 
-        {/* Products */}
+        {/* Products: Only allow 1 product */}
         <Card>
           <CardContent className="space-y-4 pt-6">
             <div className="flex justify-between items-center">
-              <CardTitle>Products/Services</CardTitle>
-              <Button type="button" variant="secondary" size="sm" onClick={addProduct}>+ Add Product</Button>
+              <CardTitle>Product</CardTitle>
+              {products.length < 1 && (
+                <Button type="button" variant="secondary" size="sm" onClick={addProduct}>+ Add Product</Button>
+              )}
             </div>
             <div className="space-y-6">
-              {products.map((prod, idx) => (
+              {products.slice(0, 1).map((prod, idx) => (
                 <div
                   key={idx}
                   className="bg-food-bg border relative border-gray-200 rounded-xl p-3 flex flex-col md:flex-row gap-3"
@@ -188,6 +224,41 @@ export default function AdminPage() {
                   >
                     &times;
                   </button>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Menu Catalogue */}
+        <Card>
+          <CardContent className="space-y-4 pt-6">
+            <CardTitle>Menu Catalogue / Extra Links</CardTitle>
+            <div className="flex justify-end">
+              <Button type="button" variant="secondary" size="sm" onClick={addExtraLink}>+ Add Link</Button>
+            </div>
+            <div className="space-y-4">
+              {extraLinks.map((link, idx) => (
+                <div key={idx} className="flex items-center gap-4 border p-2 rounded-md relative bg-white">
+                  <div className="flex flex-col items-center">
+                    {link.image ? (
+                      <img src={link.image} alt="" className="w-16 h-16 object-cover rounded" />
+                    ) : (
+                      <div className="w-16 h-16 bg-gray-100 rounded flex items-center justify-center text-gray-400">No Img</div>
+                    )}
+                    <input type="file" accept="image/*" className="text-xs mt-1" onChange={e => handleExtraLinkImage(idx, e)} />
+                  </div>
+                  <div className="flex flex-col flex-1">
+                    <Label>Title</Label>
+                    <Input value={link.title} onChange={e => handleExtraLinkChange(idx, "title", e.target.value)} />
+                    <Label>URL</Label>
+                    <Input value={link.url} onChange={e => handleExtraLinkChange(idx, "url", e.target.value)} placeholder="https://..." />
+                  </div>
+                  <button
+                    type="button"
+                    className="absolute top-1 right-1 p-2 text-gray-400 hover:text-red-500"
+                    onClick={() => removeExtraLink(idx)}
+                  >&times;</button>
                 </div>
               ))}
             </div>
