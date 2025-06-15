@@ -69,8 +69,15 @@ const Customer = () => {
 
       {/* High in Demand Header */}
       <div className="w-full max-w-md flex justify-center mb-1">
-        <span className="inline-block px-6 py-2 bg-brand-accent text-white font-bold text-xl rounded-full shadow-sm uppercase tracking-wide animate-pulse"
-        style={{ letterSpacing: "0.12em" }}>
+        <span
+          className="inline-block px-6 py-1 bg-brand-accent text-brand-dark font-bold text-lg rounded-full shadow-sm tracking-wide"
+          style={{
+            letterSpacing: "0.12em",
+            background: "#FFB6B6",              // pastel pink (matches new brand-accent)
+            color: "#9370DB",                   // deep lilac for contrast (brand-dark)
+            fontSize: "1.1rem",                 // slightly smaller
+          }}
+        >
           High in Demand!
         </span>
       </div>

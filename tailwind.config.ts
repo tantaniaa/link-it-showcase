@@ -1,7 +1,7 @@
 
-// Professional, accessible palette: deep blue, cool gray, and orange accent
-
 import type { Config } from "tailwindcss";
+
+// Cute pastel palette: pink, lavender, mint, lemon, sky blue
 
 export default {
   darkMode: ["class"],
@@ -25,47 +25,47 @@ export default {
         nunito: ['Nunito', 'sans-serif'],
       },
       colors: {
-        // Modern, readable palette
+        // Cute, pastel palette
         brand: {
-          bg: "#f3f6fa",
-          primary: "#1a237e",
-          secondary: "#f3f6fa",
-          accent: "#ff9800",
-          dark: "#131a36",
-          cta: "#fb8500",
+          bg: "#FFF6F9",               // soft pink background
+          primary: "#EA80FC",           // lavender
+          secondary: "#B388FF",         // pastel purple
+          accent: "#FFB6B6",            // pastel pink accent
+          dark: "#9370DB",              // deep lilac
+          cta: "#50E3C2",               // mint
         },
-        border: '#e0e7ef',
-        input: '#d1e3f8',
-        ring: '#1a237e',
-        background: '#f3f6fa',
-        foreground: '#1a237e',
+        border: '#FFD6EC',              // pastel pink border
+        input: '#D5F3FF',               // blue/sky accent for inputs
+        ring: '#EA80FC',                // lavender ring
+        background: '#FFF6F9',
+        foreground: '#6D597A',          // muted purple text
         primary: {
-          DEFAULT: "#1a237e",  // deep blue
+          DEFAULT: "#EA80FC",           // lavender
           foreground: "#fff"
         },
         secondary: {
-          DEFAULT: "#f3f6fa",
-          foreground: "#131a36"
+          DEFAULT: "#B388FF",           // pastel purple
+          foreground: "#fff"
         },
         destructive: {
-          DEFAULT: '#ef4444',
+          DEFAULT: '#F98C94',
           foreground: '#fff'
         },
         muted: {
-          DEFAULT: "#e4e8ef",
-          foreground: "#5871b5"
+          DEFAULT: "#FFE5EC",           // light pink muted
+          foreground: "#B388FF"
         },
         accent: {
-          DEFAULT: "#ff9800",
+          DEFAULT: "#FFB6B6",           // pastel pink
           foreground: "#fff"
         },
         popover: {
-          DEFAULT: "#f3f6fa",
-          foreground: "#131a36"
+          DEFAULT: "#FFF6F9",
+          foreground: "#6D597A"
         },
         card: {
-          DEFAULT: "#fff",
-          foreground: "#1a237e"
+          DEFAULT: "#ffffff",
+          foreground: "#6D597A"
         }
       },
       borderRadius: {
@@ -96,4 +96,3 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-
