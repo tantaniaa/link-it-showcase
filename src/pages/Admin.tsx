@@ -1,15 +1,18 @@
-
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/sonner";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 // Placeholder images for uploaded logo or product photos
 const PLACEHOLDER_IMG = "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=facearea&w=96&h=96&facepad=3";
 
 export default function AdminPage() {
+  const { t } = useTranslation();
+
   // Basic business details
   const [logo, setLogo] = useState(PLACEHOLDER_IMG);
   const [businessName, setBusinessName] = useState("Dapoer Mamah Ayu");
@@ -113,8 +116,9 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-3 pb-24">
-      <h1 className="text-2xl font-bold mb-4 text-food-cta">Admin Page</h1>
+    <div className="max-w-2xl mx-auto p-3 pb-24 relative">
+      <LanguageSwitcher />
+      <h1 className="text-2xl font-bold mb-4 text-food-cta">{t("admin.adminTitle")}</h1>
       <form className="space-y-8" onSubmit={handleSave}>
         {/* Logo */}
         <Card>
@@ -242,7 +246,7 @@ export default function AdminPage() {
 
         {/* Save button */}
         <Button type="submit" className="w-full font-bold text-lg" size="lg">
-          Save &nbsp; 🎉
+          {t("admin.save")}
         </Button>
       </form>
     </div>

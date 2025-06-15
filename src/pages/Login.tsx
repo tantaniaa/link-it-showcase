@@ -2,23 +2,25 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   function handleGoogleLogin() {
-    // Placeholder: Show a toast, real auth would use Supabase
     window.alert("Demo: Google login will be enabled once backend is connected.");
     navigate("/admin");
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-food-bg px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-food-bg px-4 relative">
+      <LanguageSwitcher />
       <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-8 flex flex-col items-center gap-5 border">
-        <h1 className="text-2xl font-extrabold text-food-cta mb-2 font-nunito">Login Admin</h1>
+        <h1 className="text-2xl font-extrabold text-food-cta mb-2 font-nunito">{t("login.loginTitle")}</h1>
         <p className="text-sm text-gray-600 mb-4 text-center">
-          Masuk dengan Google untuk mengelola katalog usaha Anda.
+          {t("login.sub")}
         </p>
         <Button onClick={handleGoogleLogin} className="flex items-center gap-2 px-8 py-3 text-base font-bold font-nunito bg-white border border-food-primary text-food-cta hover:bg-food-primary hover:text-white transition">
           <span>
@@ -32,10 +34,10 @@ export default function Login() {
               </g>
             </svg>
           </span>
-          Masuk dengan Google
+          {t("login.google")}
         </Button>
         <Button variant="ghost" className="mt-2 text-sm text-food-cta underline" onClick={() => navigate("/")}>
-          &larr; Kembali ke Beranda
+          {t("login.back")}
         </Button>
       </div>
     </div>
