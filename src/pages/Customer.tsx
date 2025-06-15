@@ -69,13 +69,14 @@ const Customer = () => {
 
       {/* High in Demand Header */}
       <div className="w-full max-w-md flex justify-center mb-1">
-        <span className="inline-block px-4 py-1 bg-brand-accent text-white font-bold text-xs rounded-full uppercase shadow-sm tracking-wide">
+        <span className="inline-block px-6 py-2 bg-brand-accent text-white font-bold text-xl rounded-full shadow-sm uppercase tracking-wide animate-pulse"
+        style={{ letterSpacing: "0.12em" }}>
           High in Demand!
         </span>
       </div>
 
       {/* Product - Smaller card */}
-      <div className="flex flex-col gap-2 w-full max-w-md">
+      <div className="flex flex-col gap-2 w-full max-w-xs">
         <ProductCard
           key={demoProducts[0].title}
           image={demoProducts[0].image}

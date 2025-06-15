@@ -1,4 +1,6 @@
 
+// Professional, accessible palette: deep blue, cool gray, and orange accent
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -23,47 +25,47 @@ export default {
         nunito: ['Nunito', 'sans-serif'],
       },
       colors: {
-        // Professional palette: blue/neutral/gray
+        // Modern, readable palette
         brand: {
-          bg: "#f7fafc",
-          primary: "#3066be",
-          secondary: "#f5f7fa",
-          accent: "#00b8a9",
-          dark: "#112d4e",
-          cta: "#22577a",
+          bg: "#f3f6fa",
+          primary: "#1a237e",
+          secondary: "#f3f6fa",
+          accent: "#ff9800",
+          dark: "#131a36",
+          cta: "#fb8500",
         },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        border: '#e0e7ef',
+        input: '#d1e3f8',
+        ring: '#1a237e',
+        background: '#f3f6fa',
+        foreground: '#1a237e',
         primary: {
-          DEFAULT: "#3066be",
+          DEFAULT: "#1a237e",  // deep blue
           foreground: "#fff"
         },
         secondary: {
-          DEFAULT: "#f5f7fa",
-          foreground: "#112d4e"
+          DEFAULT: "#f3f6fa",
+          foreground: "#131a36"
         },
         destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))'
+          DEFAULT: '#ef4444',
+          foreground: '#fff'
         },
         muted: {
-          DEFAULT: "#eef2f5",
-          foreground: "#657786"
+          DEFAULT: "#e4e8ef",
+          foreground: "#5871b5"
         },
         accent: {
-          DEFAULT: "#00b8a9",
+          DEFAULT: "#ff9800",
           foreground: "#fff"
         },
         popover: {
-          DEFAULT: "#f7fafc",
-          foreground: "#112d4e"
+          DEFAULT: "#f3f6fa",
+          foreground: "#131a36"
         },
         card: {
           DEFAULT: "#fff",
-          foreground: "#112d4e"
+          foreground: "#1a237e"
         }
       },
       borderRadius: {
@@ -94,3 +96,4 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+

@@ -46,17 +46,20 @@ const ProductCard: React.FC<ProductCardProps> = ({
   businessName,
   cardSmall
 }) => (
-  <div className={`bg-white rounded-xl shadow-lg flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 mx-auto border border-brand-primary
-    ${cardSmall ? 'p-3 max-w-md' : 'p-4 max-w-xl'} w-full`}>
+  <div
+    className={`bg-white rounded-xl shadow-lg flex flex-col md:flex-row items-center md:items-start gap-3 md:gap-4 mx-auto border border-brand-primary
+      ${cardSmall ? 'p-2 max-w-xs' : 'p-4 max-w-xl'} w-full`}
+    style={{ minHeight: cardSmall ? '90px' : undefined }}
+  >
     <img
       src={image}
       alt={title}
       className={`object-cover flex-shrink-0 border-2 border-brand-accent rounded-xl
-        ${cardSmall ? 'w-20 h-20' : 'w-28 h-28'}`}
+        ${cardSmall ? 'w-14 h-14' : 'w-28 h-28'}`}
     />
     <div className={`flex flex-col flex-grow items-center md:items-start w-full ${cardSmall ? "gap-1" : ""}`}>
-      <h2 className="font-nunito font-bold text-lg text-brand-dark mb-0">{title}</h2>
-      <div className="text-md font-bold text-brand-primary mb-1">{price}</div>
+      <h2 className="font-nunito font-bold text-base text-brand-dark mb-0">{title}</h2>
+      <div className="text-sm font-bold text-brand-primary mb-1">{price}</div>
       {description && (
         <div className="text-sm text-gray-600 mb-2 text-center md:text-left">{description}</div>
       )}
@@ -64,9 +67,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
         href={getCTALink(ctaType, businessName, title)}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-2 inline-flex items-center px-5 py-1.5 bg-brand-accent hover:bg-brand-primary transition-colors text-white rounded-full shadow font-bold font-nunito text-sm gap-2"
+        className="mt-1 inline-flex items-center px-3 py-1 bg-brand-accent hover:bg-brand-primary transition-colors text-white rounded-full shadow font-bold font-nunito text-xs gap-2"
       >
-        <img src={CTAS[ctaType].iconUrl} alt={CTAS[ctaType].label} className="w-5 h-5" />
+        <img src={CTAS[ctaType].iconUrl} alt={CTAS[ctaType].label} className="w-4 h-4" />
         {CTAS[ctaType].label}
       </a>
     </div>
@@ -74,3 +77,4 @@ const ProductCard: React.FC<ProductCardProps> = ({
 );
 
 export default ProductCard;
+
