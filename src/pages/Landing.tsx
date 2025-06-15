@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import LanguageDropdown from "@/components/LanguageDropdown";
 
 const LOGO = "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=facearea&w=96&h=96&facepad=3";
 
@@ -17,14 +17,16 @@ export default function Landing() {
 
   return (
     <div className="bg-food-bg min-h-screen pb-8 relative">
-      <LanguageSwitcher />
       {/* Sticky nav */}
       <nav className="sticky top-0 w-full z-10 flex justify-between items-center px-4 py-3 bg-white shadow-sm">
         <div className="flex items-center gap-2">
           <img src={LOGO} alt="BizLogo" className="w-9 h-9 rounded-full" />
           <span className="font-bold font-nunito text-food-cta text-lg">SmallBizCard</span>
         </div>
-        <Button onClick={() => navigate("/login")} className="font-nunito font-bold px-5 py-2">{t("login.loginTitle")}</Button>
+        <div className="flex items-center gap-2">
+          <Button onClick={() => navigate("/login")} className="font-nunito font-bold px-5 py-2">{t("login.loginTitle")}</Button>
+          <LanguageDropdown />
+        </div>
       </nav>
 
       {/* Hero */}
