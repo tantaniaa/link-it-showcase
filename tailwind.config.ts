@@ -1,6 +1,5 @@
-import type { Config } from "tailwindcss";
 
-// Modern Apple inspired palette: soft light grey, white, darker accents, blue highlights
+import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
@@ -21,43 +20,41 @@ export default {
     },
     extend: {
       fontFamily: {
-        // Apple uses SF Pro, fallback to system UI stack for web
-        apple: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
         nunito: ['Nunito', 'sans-serif'],
+        apple: ['Nunito', 'sans-serif'], // override apple to Nunito for now
       },
       colors: {
-        // Apple-inspired neutral palette
         brand: {
-          bg: "#f9fafb",             // very light grey background
-          primary: "#1a1a1a",        // super deep dark
-          secondary: "#f0f0f5",      // light neutral box
-          accent: "#0071e3",         // blue accent (Apple blue)
-          dark: "#252525",           // dark grey, not pure black
-          cta: "#0071e3",            // same blue for cta
+          bg: "#f8fcff",         // Light blue
+          primary: "#1ed760",    // Playful green (like Wati's accent)
+          secondary: "#ffe8f0",  // Pink background
+          accent: "#5468ff",     // Vibrant blue
+          dark: "#2d2d3a",       // Wati dark blue-grey
+          cta: "#ff5f7f",        // Lively pink (CTA)
         },
-        border: "#ececec",            // subtle border grey
-        input: "#f0f0f5",             // matches card/box background
-        ring: "#0071e3",              // blue ring
-        background: "#f9fafb",
-        foreground: "#23272a",        // deep muted text
+        border: "#e3e9f2",       // way lighter blue border
+        input: "#f2f8fe",        // lighter than bg
+        ring: "#95f7c1",         // Soft mint ring
+        background: "#f8fcff",
+        foreground: "#393a56",   // Deep blue text
         primary: {
-          DEFAULT: "#1a1a1a",         // main text/black
+          DEFAULT: "#393a56",
           foreground: "#fff"
         },
         secondary: {
-          DEFAULT: "#f0f0f5",         // surface/card background
-          foreground: "#23272a"
+          DEFAULT: "#ffe8f0",
+          foreground: "#393a56"
         },
         destructive: {
           DEFAULT: "#fa3c3c",
           foreground: "#fff"
         },
         muted: {
-          DEFAULT: "#f3f3f7",         // light grey muted
+          DEFAULT: "#f6f6fb",
           foreground: "#8a8a8f"
         },
         accent: {
-          DEFAULT: "#0071e3",         // blue accent
+          DEFAULT: "#5468ff",
           foreground: "#fff"
         },
         popover: {
@@ -70,12 +67,12 @@ export default {
         }
       },
       borderRadius: {
-        lg: "18px",
-        md: "14px",
-        sm: "8px",
+        lg: "2rem",
+        md: "1.25rem",
+        sm: "0.5rem",
       },
       boxShadow: {
-        apple: "0 4px 16px 0 rgba(30,34,40,0.04), 0 1.5px 6px 0 rgba(30,34,40,0.04)",
+        fun: "0 4px 32px 0 rgba(30, 60, 90, 0.12)",
       },
       keyframes: {
         'accordion-down': {
@@ -100,3 +97,4 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
