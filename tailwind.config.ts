@@ -23,11 +23,14 @@ export default {
         nunito: ['Nunito', 'sans-serif'],
       },
       colors: {
-        food: {
-          bg: "#FFF2E1",
-          primary: "#FFB347",
-          cta: "#67401d",
-          accent: "#47A992",
+        // Professional palette: blue/neutral/gray
+        brand: {
+          bg: "#f7fafc",
+          primary: "#3066be",
+          secondary: "#f5f7fa",
+          accent: "#00b8a9",
+          dark: "#112d4e",
+          cta: "#22577a",
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -35,42 +38,32 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))'
+          DEFAULT: "#3066be",
+          foreground: "#fff"
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))'
+          DEFAULT: "#f5f7fa",
+          foreground: "#112d4e"
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))'
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))'
+          DEFAULT: "#eef2f5",
+          foreground: "#657786"
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))'
+          DEFAULT: "#00b8a9",
+          foreground: "#fff"
         },
         popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))'
+          DEFAULT: "#f7fafc",
+          foreground: "#112d4e"
         },
         card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))'
-        },
-        sidebar: {
-          DEFAULT: 'hsl(var(--sidebar-background))',
-          foreground: 'hsl(var(--sidebar-foreground))',
-          primary: 'hsl(var(--sidebar-primary))',
-          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-          accent: 'hsl(var(--sidebar-accent))',
-          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-          border: 'hsl(var(--sidebar-border))',
-          ring: 'hsl(var(--sidebar-ring))'
+          DEFAULT: "#fff",
+          foreground: "#112d4e"
         }
       },
       borderRadius: {
@@ -80,22 +73,13 @@ export default {
       },
       keyframes: {
         'accordion-down': {
-          from: {
-            height: '0'
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)'
-          }
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' }
         },
         'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)'
-          },
-          to: {
-            height: '0'
-          }
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' }
         },
-        // Added for banner pulse/bounce
         'promo-bounce': {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-8px)' }

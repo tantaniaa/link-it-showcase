@@ -8,6 +8,7 @@ type ProductCardProps = {
   description?: string;
   ctaType: "whatsapp" | "instagram";
   businessName: string;
+  cardSmall?: boolean; // NEW
 };
 
 const CTAS = {
@@ -27,35 +28,43 @@ function getCTALink(
   productTitle: string
 ): string {
   if (type === "whatsapp") {
-    // Use a demo phone.
     const text = encodeURIComponent(
       `Halo! Saya ingin pesan ${productTitle} dari ${businessName}.`
     );
     return `https://wa.me/6281234567890?text=${text}`;
   }
-  // Instagram DM links need actual usernames, just open ig.com for now.
   return `https://instagram.com/direct/t/username`;
 }
 
+// Accept cardSmall for a smaller layout
 const ProductCard: React.FC<ProductCardProps> = ({
   image,
   title,
   price,
   description,
   ctaType,
-  businessName
+  businessName,
+  cardSmall
 }) => (
-  <div className="bg-white rounded-xl shadow-lg p-4 mb-4 flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-8 max-w-xl w-full mx-auto border border-food-primary">
-    <img src={image} alt={title} className="w-28 h-28 rounded-xl object-cover flex-shrink-0 border-2 border-food-accent" />
-    <div className="flex flex-col flex-grow items-center md:items-start w-full">
-      <h2 className="font-nunito font-bold text-xl text-food-cta mb-0">{title}</h2>
-      <div className="text-lg font-bold text-food-primary mb-1">{price}</div>
-      {description && <div className="text-sm text-gray-700 mb-2 text-center md:text-left">{description}</div>}
+  <div className={`bg-white rounded-xl shadow-lg flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 mx-auto border border-brand-primary
+    ${cardSmall ? 'p-3 max-w-md' : 'p-4 max-w-xl'} w-full`}>
+    <img
+      src={image}
+      alt={title}
+      className={`object-cover flex-shrink-0 border-2 border-brand-accent rounded-xl
+        ${cardSmall ? 'w-20 h-20' : 'w-28 h-28'}`}
+    />
+    <div className={`flex flex-col flex-grow items-center md:items-start w-full ${cardSmall ? "gap-1" : ""}`}>
+      <h2 className="font-nunito font-bold text-lg text-brand-dark mb-0">{title}</h2>
+      <div className="text-md font-bold text-brand-primary mb-1">{price}</div>
+      {description && (
+        <div className="text-sm text-gray-600 mb-2 text-center md:text-left">{description}</div>
+      )}
       <a
         href={getCTALink(ctaType, businessName, title)}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-2 inline-flex items-center px-6 py-2 bg-food-accent hover:bg-food-primary transition-colors text-white rounded-full shadow-md font-bold font-nunito text-md gap-2"
+        className="mt-2 inline-flex items-center px-5 py-1.5 bg-brand-accent hover:bg-brand-primary transition-colors text-white rounded-full shadow font-bold font-nunito text-sm gap-2"
       >
         <img src={CTAS[ctaType].iconUrl} alt={CTAS[ctaType].label} className="w-5 h-5" />
         {CTAS[ctaType].label}
