@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Instagram, Whatsapp } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 type SocialLinksProps = {
   instagramUrl?: string;
@@ -21,7 +21,12 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
       className="bg-food-accent hover:bg-food-primary text-white rounded-full p-3 flex items-center gap-1 shadow-lg transition-all hover:scale-105"
       aria-label="WhatsApp"
     >
-      <Whatsapp size={20} className="mr-1" />
+      {/* WhatsApp SVG brand icon */}
+      <svg viewBox="0 0 32 32" width={20} height={20} fill="white" className="mr-1" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <path d="M16 3C9.383 3 4 8.383 4 15c0 2.661 1.027 5.206 2.893 7.22L4 29l6.967-2.801A12.899 12.899 0 0 0 16 27c6.617 0 12-5.383 12-12S22.617 3 16 3zm0 22c-2.039 0-4.016-.543-5.752-1.572l-.408-.244-4.142 1.666 1.587-4.312-.264-.414C5.526 18.038 5 16.544 5 15c0-6.065 4.935-11 11-11s11 4.935 11 11-4.935 11-11 11zm6.037-7.393c-.33-.164-1.964-.971-2.269-1.08-.305-.112-.528-.164-.751.165-.22.33-.858 1.079-1.053 1.299-.193.22-.387.247-.717.083-.33-.165-1.392-.513-2.652-1.633-.981-.872-1.644-1.948-1.84-2.278-.193-.33-.021-.508.146-.671.151-.15.33-.39.495-.586.163-.194.217-.332.33-.551.11-.22.055-.413-.027-.577-.082-.164-.752-1.816-1.03-2.49-.272-.653-.552-.564-.752-.574-.193-.009-.414-.011-.636-.011a1.23 1.23 0 0 0-.86.4c-.295.313-.963.943-.963 2.299s.985 2.672 1.124 2.862c.138.189 1.942 2.965 4.705 4.042.658.225 1.177.36 1.58.46.665.168 1.273.145 1.753.088.535-.063 1.639-.669 1.872-1.316.23-.647.23-1.204.162-1.316-.068-.112-.246-.182-.508-.312z"/>
+        </g>
+      </svg>
       <span className="font-nunito font-bold text-sm">WhatsApp</span>
     </a>
     <a
